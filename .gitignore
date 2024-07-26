@@ -7,3 +7,6 @@ settings.ini
 .DS_Store
 CMakeUserPresets.json
 .cache/
+
+#
+cmake-build*/
