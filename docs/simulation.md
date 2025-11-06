@@ -506,11 +506,11 @@ simulate movement.
 Keep in mind that the Box2D interface uses *radians*.
 
 ```c
-b2Body_SetTransform(myBodyId, position, angleInRadians);
+b2Body_SetTransform(myBodyId, position, rotation);
 b2Transform transform = b2Body_GetTransform(myBodyId);
 b2Vec2 position = b2Body_GetPosition(myBodyId);
 b2Rot rotation = b2Body_GetRotation(myBodyId);
-float angleInRadians = b2Body_GetAngle(myBodyId);
+float angleInRadians = b2Rot_GetAngle(rotation);
 ```
 
 You can access the center of mass position in local and world
@@ -1089,7 +1089,7 @@ for (int i = 0; i < contactEvents.hitCount; ++i)
 Shapes only generate hit events if `b2ShapeDef::enableHitEvents` is true.
 I recommend you only enable this for shapes that need hit events because
 it creates some overhead. Box2D also only reports hit events that have an
-approach speed is larger than `b2WorldDef::hitEventThreshold`.
+approach speed larger than `b2WorldDef::hitEventThreshold`.
 
 ### Contact Filtering
 Often in a game you don't want all objects to collide. For example, you
